@@ -1,15 +1,17 @@
 <template>
-  <hello-world />
+  <login-view />
 </template>
 
 <script>
-  import HelloWorld from '../components/HelloWorld'
+ 
+import LoginView from './LoginView.vue'
 
   export default {
-    name: 'Home',
+    name: 'HomeView',
 
     components: {
-      HelloWorld,
+      LoginView
+        
     },
   }
 </script>
