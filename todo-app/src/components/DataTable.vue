@@ -16,6 +16,9 @@
               >
                 + Add new Task
               </v-btn>
+              <!-- <div v-for="index in user" :key=index>
+        <h1>{{index.name}}</h1>
+    </div> -->
             </div>
           </template>
 
@@ -31,7 +34,7 @@
                       <v-text-field
                         label="Name of the task"
                         required
-                        v-model="name"
+                        v-model="taskName"
                       ></v-text-field>
                     </v-col>
                     <v-col cols="12">
@@ -46,7 +49,7 @@
                 </v-container>
               </v-card-text>
               <v-card-actions class="justify-end">
-                <v-btn text @click="storeData">Save</v-btn>
+                <v-btn text @click="saveData">Save</v-btn>
                 <v-btn text @click="dialog.value = false">Close</v-btn>
               </v-card-actions>
             </v-card>
@@ -56,9 +59,9 @@
     </v-responsive>
 
     <div>
-      <v-data-table 
+      <v-data-table
         :headers="headers"
-        :items="desserts"
+        :items="task"
         :items-per-page="5"
         class="elevation-1"
       ></v-data-table>
@@ -66,46 +69,51 @@
   </v-sheet>
 </template>
 <script>
+// import axios from "axios"
 export default {
-    
-    
+//   computed: {
+//     user() {
+//       return this.task = this.$store.state.user;
+//     },
+
+//   },
+  mounted() {
+    this.$store.dispatch("getUser");
+    console.log("user",this.$store.state.user)
+    this.task = this.$store.state.user;
+
+  },
+
   data() {
     return {
+        taskName:"",
+        description:"",
+        task:[],
       headers: [
-        {
-          align: "start",
-          sortable: false,
-        },
-        { text: "id", value: "id" },
-        { text: "Name", value: "name" },
+        
+        { text: "Name", value: "task" },
+        { text: "id", value: "name" },
+       
         { text: "Description", value: "description" },
-        { text: "Action", value: "protein" },
+        { text: "action", value: "task" },
       ],
-      desserts: [
-        {
-          name: "Eman",
-          id: 1,
-          description: "Cool",
-        },
-        {
-          name: "Eman",
-          id: 1,
-          description: "Cool",
-        },
-        {
-          name: "Eman",
-          id: 1,
-          description: "Cool",
-        },
-        {
-          name: "Eman",
-          id: 1,
-          description: "Cool",
-        },
-      ],
+      
+     
+      
     };
   },
+
+  methods:{
+      saveData(){
+          let data ={
+              taskName : this.taskName,
+              description : this.description,
+          }
+          console.log(data);
+          this.$store.dispatch("sendData",JSON.stringify(this.data))
+      }
+  }
+
   
- 
 };
 </script>

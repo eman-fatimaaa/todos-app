@@ -59,6 +59,7 @@
                     </v-list-item-title>
                   </v-list-item-content>
                 </v-list-item>
+                
               </v-list>
             </v-sheet>
           </v-col>
@@ -78,9 +79,7 @@ export default {
     links: ["Dashboard", "Messages", "Profile", "Updates"],
     image: require("../assets/images/logo.png"),
   }),
-  mounted(){
-      this.$store.dispatch("getName")
-  },
+  
   methods: {
     logOut() {
       this.$store.state.authenticated = false;

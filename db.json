@@ -1,0 +1,30 @@
+{
+  "user":[
+      {
+          "name" : "Eman",
+          "password" : "eman123",
+          "task":"exercise",
+          "description":"Exercise is good for health",
+          "identity":"Admin"
+      },
+      {
+          "name" : "Fatima",
+          "password":"fatima123",
+          "task":"gym",
+          "description":"Gym should be a habit",
+          "identity":"user"
+      },{
+          "name" : "Saim",
+          "password":"saim123",
+          "task":"exercise",
+          "description":"Healthy mind is in a healthy body",
+          "identity":"user"
+          
+      }
+  ],
+  "task":[
+    {
+      
+    }
+  ]
+}
