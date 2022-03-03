@@ -1,8 +1,8 @@
 <template>
   <div class="Login">
-    <v-app-bar app height="90">
+    <v-app-bar app height="90" color="rgb(207,92,80)" >
       <div class="d-flex">
-        <img />
+        <img class="img" :src="image"  />
       </div>
 
       <v-spacer></v-spacer>
@@ -24,24 +24,18 @@
               </v-col>
               <v-col cols="5">
                 <v-text-field
-                  :append-icon="show4 ? 'mdi-eye' : 'mdi-eye-off'"
+                  
                   label="Password"
                   type="password"
                   v-model="password"
                 ></v-text-field>
               </v-col>
               <v-col cols="5">
-                <v-btn depressed color="primary" block @click="logIn">
+                <v-btn depressed class="white--text" color="rgb(207,92,80)" block @click="logIn">
                   Log In
                 </v-btn>
               </v-col>
-              <p class="pMargin">
-                Don't have an account?<router-link
-                  class="black--text mr-5"
-                  to="/"
-                  ><a>Sign Up</a></router-link
-                >
-              </p>
+              
             </v-form>
           </v-container>
         </v-col>
@@ -56,7 +50,7 @@ export default {
   name: "LoginView",
   data() {
     return {
-      //   image: require("@/assets/images/weekday.png"),
+     image: require("../assets/images/logo.png"),
       valid: true,
       //data properties for Regex
 
@@ -78,13 +72,13 @@ export default {
           JSON.stringify(this.accounts)
         );
         this.accounts = JSON.parse(localStorage.getItem("accounts"));
-        //checks for the specific account and stores in new cuurentAccount
+        
         this.currentAccount = this.accounts.find((u) => {
           return u.name == this.userName && u.password == this.password;
         });
         if (this.currentAccount) {
           (this.$store.state.authenticated = true),
-            this.$router.push({ name: "dashboardview" });
+            this.$router.push({ path: "/datatable" });
           localStorage.setItem(
             "currentAccount",
             JSON.stringify(this.currentAccount)
@@ -102,12 +96,13 @@ export default {
   margin-left: 28%;
 }
 img {
-  width: 350px;
+  width: 100px;
 }
 .color {
-  background-color: rgba(245, 245, 245, 0.5);
-  border-radius: 10px;
-  box-shadow: 0px 1px 4px 0px;
+  /* background-color: rgba(245, 245, 245, 0.5); */
+  /* border: 1px; */
+  /* box-shadow: 0px 0px 3px 0px; */
+  border-radius:4px;
 }
 .width {
   width: 900px;
@@ -116,9 +111,3 @@ img {
   margin-left: -59%;
 }
 </style>
- if (e.name == this.userName && e.password == this.password) {
-            console.log("success");
-            this.$store.state.authenticated = true;
-            localStorage.setItem("user",this.user)
-            this.$router.push({ name: "dashboardview" });
-          } else {console.log("error")}
