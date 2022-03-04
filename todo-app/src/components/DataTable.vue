@@ -16,9 +16,6 @@
               >
                 + Add new Task
               </v-btn>
-              <!-- <div v-for="index in user" :key=index>
-        <h1>{{index.name}}</h1>
-    </div> -->
             </div>
           </template>
 
@@ -69,51 +66,45 @@
   </v-sheet>
 </template>
 <script>
-// import axios from "axios"
+
+  import {mapState }from 'vuex'
 export default {
-//   computed: {
-//     user() {
-//       return this.task = this.$store.state.user;
-//     },
-
-//   },
   mounted() {
+    
     this.$store.dispatch("getUser");
-    console.log("user",this.$store.state.user)
+    console.log("user", this.$store.state.user);
     this.task = this.$store.state.user;
-
+    
+  },
+  computed:{
+    
+      ...mapState(["user"]),
+    
   },
 
   data() {
     return {
-        taskName:"",
-        description:"",
-        task:[],
+      taskName: "",
+      description: "",
+      task: [],
       headers: [
-        
         { text: "Name", value: "task" },
-        { text: "id", value: "name" },
-       
+        { text: "id", value: "id" },
         { text: "Description", value: "description" },
         { text: "action", value: "task" },
       ],
-      
-     
-      
     };
   },
 
-  methods:{
-      saveData(){
-          let data ={
-              taskName : this.taskName,
-              description : this.description,
-          }
-          console.log(data);
-          this.$store.dispatch("sendData",JSON.stringify(this.data))
-      }
-  }
-
-  
+  methods: {
+    saveData() {
+      let task = {
+        taskName: this.taskName,
+        description: this.description,
+      };
+      console.log(task);
+      localStorage.setItem("task", JSON.stringify(task));
+    },
+  },
 };
 </script>

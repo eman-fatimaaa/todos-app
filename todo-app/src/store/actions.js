@@ -3,7 +3,7 @@ import axios from "axios"
 export const getUser = ({commit})=>{
 axios.get("http://localhost:3000/user")
 .then(response => {
-    (commit('GET_USERNAME',response.data))
+    commit('GET_USERNAME',response.data)
 })
 }
 

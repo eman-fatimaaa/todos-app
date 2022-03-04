@@ -41,7 +41,7 @@ const routes = [
   }],
     beforeEnter: (to, from, next) => {
       if (store.state.authenticated == false) {
-        next(false);
+        next("/");
 
       }
       else {
