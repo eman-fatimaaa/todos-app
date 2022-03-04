@@ -7,8 +7,16 @@
       <v-sheet min-height="70vh" rounded="lg">
         <v-row class="pt-5">
           <v-col cols="12" sm="6" offset-sm="3">
-            <v-card class="mb-5" height="200px" v-for="task in currentAccount" :key="task">
-              <v-card-title class=" white--text" style="background-color:rgb(222,94,86)">
+            <v-card
+              class="mb-5"
+              height="200px"
+              v-for="task in currentAccount"
+              :key="task"
+            >
+              <v-card-title
+                class="white--text"
+                style="background-color: rgb(222, 94, 86)"
+              >
                 <span class="text-h5">{{ task.id }}</span>
 
                 <v-spacer></v-spacer>
@@ -18,11 +26,13 @@
                 </v-menu>
               </v-card-title>
 
-              <v-card-text class="text-center pt-5" style="font-size:20px"><strong>Task Name :</strong>{{task.name}}  
-                </v-card-text>
-              <v-card-text class="text-center pt-5" style="font-size:20px"> <strong>Task Description : </strong>{{
-                task.description
-              }}</v-card-text>
+              <v-card-text class="text-center pt-5" style="font-size: 20px"
+                ><strong>Task Name :</strong>{{ task.name }}
+              </v-card-text>
+              <v-card-text class="text-center pt-5" style="font-size: 20px">
+                <strong>Task Description : </strong
+                >{{ task.description }}</v-card-text
+              >
             </v-card>
           </v-col>
         </v-row>
@@ -53,8 +63,8 @@ export default {
 };
 </script>
 <style scoped>
-.color{
-  color:rgb"rgb(222,94,86)"
+.color {
+  color: rgb "rgb(222,94,86)";
 }
 </style>
 
