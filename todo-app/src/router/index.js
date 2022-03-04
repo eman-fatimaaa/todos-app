@@ -30,15 +30,15 @@ const routes = [
     children: [{
       path: '/taskComponent',
       component: TaskComponent,
-    },{
-      path:"/datatable",
-      component:DataTable,
+    }, {
+      path: "/datatable",
+      component: DataTable,
     },
-  {
-    path:"/logscomponent",
-    component:LogsComponent,
+    {
+      path: "/logscomponent",
+      component: LogsComponent,
 
-  }],
+    }],
     beforeEnter: (to, from, next) => {
       if (store.state.authenticated == false) {
         next("/");

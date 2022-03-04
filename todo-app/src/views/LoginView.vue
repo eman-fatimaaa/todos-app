@@ -1,8 +1,8 @@
 <template>
   <div class="Login">
-    <v-app-bar app height="90" color="rgb(207,92,80)" >
+    <v-app-bar app height="90" color="rgb(207,92,80)">
       <div class="d-flex">
-        <img class="img" :src="image"  />
+        <img class="img" :src="image" />
       </div>
 
       <v-spacer></v-spacer>
@@ -24,18 +24,25 @@
               </v-col>
               <v-col cols="5">
                 <v-text-field
-                  
                   label="Password"
                   type="password"
                   v-model="password"
                 ></v-text-field>
               </v-col>
+              <v-col class="text-left">
+               <input type="checkbox" > Accept Terms and conditions policy
+              </v-col>
               <v-col cols="5">
-                <v-btn depressed class="white--text" color="rgb(207,92,80)" block @click="logIn">
+                <v-btn
+                  depressed
+                  class="white--text"
+                  color="rgb(207,92,80)"
+                  block
+                  @click="logIn"
+                >
                   Log In
                 </v-btn>
               </v-col>
-              
             </v-form>
           </v-container>
         </v-col>
@@ -50,7 +57,7 @@ export default {
   name: "LoginView",
   data() {
     return {
-     image: require("../assets/images/logo.png"),
+      image: require("../assets/images/logo.png"),
       valid: true,
       //data properties for Regex
 
@@ -58,7 +65,7 @@ export default {
       userName: "",
       password: "",
       show4: true,
-      accounts:[],
+      accounts: [],
     };
   },
   methods: {
@@ -67,12 +74,9 @@ export default {
         console.log(response);
 
         this.accounts = response.data;
-        localStorage.setItem(
-          "accounts",
-          JSON.stringify(this.accounts)
-        );
+        localStorage.setItem("accounts", JSON.stringify(this.accounts));
         this.accounts = JSON.parse(localStorage.getItem("accounts"));
-        
+
         this.currentAccount = this.accounts.find((u) => {
           return u.name == this.userName && u.password == this.password;
         });
@@ -102,7 +106,7 @@ img {
   /* background-color: rgba(245, 245, 245, 0.5); */
   /* border: 1px; */
   /* box-shadow: 0px 0px 3px 0px; */
-  border-radius:4px;
+  border-radius: 4px;
 }
 .width {
   width: 900px;

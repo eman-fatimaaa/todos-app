@@ -1,4 +1,9 @@
 <template>
+ <v-parallax
+    height="70vh"
+    src="https://cdn.vuetifyjs.com/images/parallax/material2.jpg"
+  >
+ 
   <v-sheet min-height="70vh" rounded="lg">
     <router-view></router-view>
     <v-responsive max-width="260">
@@ -64,6 +69,7 @@
       ></v-data-table>
     </div>
   </v-sheet>
+ </v-parallax>
 </template>
 <script>
 
@@ -86,6 +92,7 @@ export default {
 
   data() {
     return {
+      
       taskName: "",
       description: "",
       task: [],
@@ -110,7 +117,9 @@ export default {
         time: this.time,
       };
       console.log(task);
-      localStorage.setItem("task", JSON.stringify(task));
+      localStorage.setItem("task", JSON.stringify(task))
+      this.$emit("taskAdded")
+      // alert("Your task has been added successfully");
     },
   },
 };
