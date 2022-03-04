@@ -69,7 +69,7 @@
 
   import {mapState }from 'vuex'
 export default {
-  mounted() {
+  created() {
     
     this.$store.dispatch("getUser");
     console.log("user", this.$store.state.user);
@@ -78,7 +78,9 @@ export default {
   },
   computed:{
     
+      // ...mapGetters(["userObject"]),
       ...mapState(["user"]),
+   
     
   },
 
@@ -87,6 +89,8 @@ export default {
       taskName: "",
       description: "",
       task: [],
+      date : new Date().toJSON().slice(0,10).replace(/-/g,'/'),
+      time: new Date().getHours() + ":" + new Date().getMinutes() + ":" + new Date().getSeconds(),
       headers: [
         { text: "Name", value: "task" },
         { text: "id", value: "id" },
@@ -101,6 +105,9 @@ export default {
       let task = {
         taskName: this.taskName,
         description: this.description,
+        status :"New task has been added",
+        date :this.date,
+        time: this.time,
       };
       console.log(task);
       localStorage.setItem("task", JSON.stringify(task));
