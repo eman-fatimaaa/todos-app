@@ -30,7 +30,7 @@
                 ></v-text-field>
               </v-col>
               <v-col class="text-left">
-               <input type="checkbox" > Accept Terms and conditions policy
+               <input type="checkbox" v-model="acceptance" > Accept Terms and conditions policy
               </v-col>
               <v-col cols="5">
                 <v-btn
@@ -66,6 +66,7 @@ export default {
       password: "",
       show4: true,
       accounts: [],
+      acceptance: false,
     };
   },
   methods: {
@@ -87,6 +88,7 @@ export default {
             "currentAccount",
             JSON.stringify(this.currentAccount)
           );
+          
         } else {
           alert("We are afraid your account does not exist");
         }
