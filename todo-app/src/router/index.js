@@ -3,7 +3,7 @@ import VueRouter from 'vue-router'
 import HomeView from '../views/HomeView.vue'
 import DashboardView from '../views/DashboardView.vue'
 import TaskComponent from '../components/TaskComponent.vue'
-import AboutView from '../components/AboutView.vue'
+import AboutView from '../views/AboutView.vue'
 import DataTable from '../components/DataTable.vue'
 import LogsComponent from '../components/LogsComponent.vue'
 import store from "../store"
