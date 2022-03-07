@@ -27,7 +27,7 @@ const routes = [
     component: DashboardView,
     children: [
       {
-        path: "/taskComponent",
+        path: "/taskcomponent",
         component: TaskComponent,
       },
       {

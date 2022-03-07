@@ -36,15 +36,12 @@
                       <router-link
                         class="red--text mr-5 textDecor"
                         :to="item.path"
-                        @:click="item.name == 'Logout' ? 'doSomething' : ''"
                         >{{ item.name }}</router-link
                       >
                     </v-list-item-title>
                   </v-list-item-content>
                 </v-list-item>
                 <v-divider class="my-2" color="rgb(222,94,86)"></v-divider>
-                
-                 
               </v-list>
               <v-list>
                 <v-list-item link color="grey lighten-4">
@@ -76,13 +73,12 @@ export default {
     items: [
       {
         name: "Tasks",
-        path: "/taskComponent",
+        path: "/taskcomponent",
       },
       {
         name: "Logs",
         path: "/logscomponent",
       },
-     
     ],
   }),
 
