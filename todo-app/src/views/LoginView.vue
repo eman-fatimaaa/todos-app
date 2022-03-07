@@ -12,7 +12,7 @@
         <!-- Log in form starts here-->
         <v-col>
           <h1>Log In</h1>
-          <v-container ref="conatiner" class="align" >
+          <v-container ref="conatiner" class="align">
             <v-form ref="form">
               <v-col cols="5">
                 <v-text-field
@@ -30,7 +30,8 @@
                 ></v-text-field>
               </v-col>
               <v-col class="text-left">
-               <input type="checkbox" v-model="acceptance" > Accept Terms and conditions policy
+                <input type="checkbox" v-model="acceptance" /> Accept Terms and
+                conditions policy
               </v-col>
               <v-col cols="5">
                 <v-btn
@@ -88,7 +89,6 @@ export default {
             "currentAccount",
             JSON.stringify(this.currentAccount)
           );
-          
         } else {
           alert("We are afraid your account does not exist");
         }
@@ -96,9 +96,7 @@ export default {
     },
   },
 
-  mounted(){
-    // console.log("this.$refs.conatiner", this.$refs.conatiner);
-  }
+ 
 };
 </script>
 <style scoped>
