@@ -1,0 +1,31 @@
+{
+  "user": [
+    {
+      "name": "Eman",
+      "password": "eman123",
+      "author": "typicode",
+      "id" :"hgiejnnksk6789",
+      "task" : "Gym",
+      "description":"Keeps body in shape"
+    },
+    {
+      "name": "Fatima",
+      "password": "fatima123",
+      "author": "typicode",
+      "id" :"hbdehu6789",
+      "task" : "Exercise",
+      "description":"It's good for health"
+    },
+    {
+      "name": "Saim",
+      "password": "saim123",
+      "author": "typicode",
+      "id" :"lmh678904567",
+      "task" : "Eat Healthy",
+      "description" :"Health is Wealth"
+    }
+  ]
+  
+    
+  
+}

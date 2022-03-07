@@ -25,33 +25,28 @@
         <v-row>
           <v-col cols="2">
             <v-sheet rounded="lg" min-height="70vh">
-              <v-list color="transparent">
-                <v-list-item link color="grey lighten-4">
+              <v-list
+                color="transparent"
+                v-for="item in items"
+                :key="item.name"
+              >
+                <v-list-item link color="grey lighten-4" :to="item.path">
                   <v-list-item-content>
                     <v-list-item-title>
                       <router-link
                         class="red--text mr-5 textDecor"
-                        to="/taskcomponent"
-                        >Tasks</router-link
+                        :to="item.path"
+                        @:click="item.name == 'Logout' ? 'doSomething' : ''"
+                        >{{ item.name }}</router-link
                       >
                     </v-list-item-title>
                   </v-list-item-content>
                 </v-list-item>
                 <v-divider class="my-2" color="rgb(222,94,86)"></v-divider>
-                <v-list-item link color="rgb(222,94,86)">
-                  <v-list-item-content>
-                    <v-list-item-title>
-                      <router-link
-                        class="mr-5 red--text textDecor"
-                        to="/logscomponent"
-                        >Logs</router-link
-                      >
-                    </v-list-item-title>
-                  </v-list-item-content>
-                </v-list-item>
-
-                <v-divider class="my-2" color="rgb(222,94,86)"></v-divider>
-
+                
+                 
+              </v-list>
+              <v-list>
                 <v-list-item link color="grey lighten-4">
                   <v-list-item-content>
                     <v-list-item-title @click="logOut" class="red--text">
@@ -78,12 +73,27 @@ export default {
     links: ["Dashboard", "Messages", "Profile", "Updates"],
     image: require("../assets/images/logo.png"),
     snackbar: false,
+    items: [
+      {
+        name: "Tasks",
+        path: "/taskComponent",
+      },
+      {
+        name: "Logs",
+        path: "/logscomponent",
+      },
+     
+    ],
   }),
 
   methods: {
     logOut() {
       this.$store.state.authenticated = false;
       this.$router.push({ name: "homeview" });
+    },
+
+    doSomething() {
+      console.log("logout");
     },
   },
 };
